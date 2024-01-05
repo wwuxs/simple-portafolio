@@ -1,6 +1,6 @@
 <header
   id="main-header"
-  class="z-50 fixed top-0 left-0 w-full grid place-items-center px-4 bg-neutral-100/60 dark:bg-neutral-950/60 backdrop-blur-md"
+  class="z-50 fixed top-0 left-0 w-full grid place-items-center px-4 bg-neutral-100/60 dark:bg-neutral-950/60 backdrop-blur-md transition-all"
 >
   <div
     class="container max-w-[1080px] min-h-24 flex justify-between items-center"
@@ -13,9 +13,9 @@
     <nav>
       <ul
         id="menu-el"
-        class="absolute transition-all pointer-events-none right-0 top-0 grid gap-4 opacity-0 p-4
-        [&.active]:pointer-events-auto [&.active]:opacity-100 [&.active]:top-full [&.active]:bg-neutral-100 [&.active]:dark:bg-neutral-950/95 md:[&.active]:bg-transparent md:[&.active]:dark:bg-transparent
-        md:flex md:items-center md:relative md:opacity-100 md:top-0 md:pointer-events-auto md:p-0
+        class="absolute transition-all pointer-events-none right-2 top-0 grid gap-4 opacity-0 p-4 rounded-xl
+        [&.active]:pointer-events-auto [&.active]:opacity-100 [&.active]:top-[78px] [&.active]:bg-neutral-950 [&.active]:dark:bg-neutral-100 text-zinc-200 dark:text-zinc-800 md:[&.active]:bg-transparent md:[&.active]:dark:bg-transparent md:[&.active]:top-0
+        md:flex md:items-center md:relative md:opacity-100 md:top-0 md:pointer-events-auto md:p-0 md:text-zinc-800 md:dark:text-zinc-200
         [&>li>a]:block [&>li>a]:w-full [&>li>a]:text-xl [&>li>a]:p-2 [&>li>a]:transition-all md:hover:[&>li>a]:translate-y-1"
       >
         <li><a href="#">Inicio</a></li>
@@ -25,7 +25,7 @@
       </ul>
       <button
         id="button-menu"
-        class="relative w-10 h-10 grid place-items-center text-4xl md:hidden"
+        class="relative w-10 h-10 grid place-items-center text-5xl md:hidden"
         >+</button
       >
     </nav>
@@ -33,14 +33,36 @@
 </header>
 
 <script>
+  const mainHeader = document.getElementById("main-header");
   const buttonMenu = document.getElementById("button-menu");
   const menuEl = document.getElementById("menu-el");
 
-  buttonMenu?.addEventListener("click", () => {
-    if (menuEl?.classList.toggle("active")) {
-      buttonMenu.innerHTML = "-";
-    } else {
-      buttonMenu.innerHTML = "+";
+  if (mainHeader && menuEl) {
+    const updateColors = () => {
+      if (scrollY < 72) {
+        mainHeader.style.background = "transparent";
+      } else {
+        mainHeader.style.background = "";
+      }
+    };
+
+    updateColors();
+    window.addEventListener("scroll", () => updateColors());
+  }
+
+  if (menuEl && buttonMenu) {
+    buttonMenu?.addEventListener("click", () => {
+      if (menuEl?.classList.toggle("active")) {
+        buttonMenu.innerHTML = "-";
+      } else {
+        buttonMenu.innerHTML = "+";
+      }
+    });
+    for (let i = 0; i < menuEl.children?.length; i++) {
+      menuEl.children[i].addEventListener("click", () => {
+        buttonMenu.innerHTML = "+";
+        menuEl.classList.remove("active");
+      });
     }
-  });
+  }
 </script>
