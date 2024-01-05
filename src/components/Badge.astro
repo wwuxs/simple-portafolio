@@ -1,0 +1,23 @@
+---
+interface Props {
+  color?: string;
+}
+
+const { color } = Astro.props;
+
+let clases =
+  "inline-flex items-center rounded-md px-4 py-2 text-md md:text-xl font-medium ring-1 ring-inset gap-2";
+
+switch (color?.toLowerCase()) {
+  case "blue":
+    clases += " bg-blue-50 text-blue-700 ring-blue-700/10";
+    break;
+  default:
+    clases += " bg-gray-50 text-gray-600 ring-gray-500/10";
+    break;
+}
+---
+
+<span class={clases}>
+  <slot />
+</span>

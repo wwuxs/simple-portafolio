@@ -1,9 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Badge from "../components/Badge.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
+import BriefcaseIcon from "../components/icons/BriefcaseIcon.astro";
 ---
 
-<Layout title="Portafolio Web">
-  <main>
-    <h1>Portafolio Web</h1>
+<Layout
+  title="Portafolio de Gusstavo - Desarrollador y Programador web"
+  description="Contrata a Gusstavo para crear tu pagina web y darle una gran experiancia a los usuarios"
+>
+  <main
+    class="grid justify-center content-start pt-28 md:pt-48 px-4 gap-48 md:gap-64"
+  >
+    <SectionContainer>
+      <div class="w-full flex flex-wrap items-center gap-8">
+        <h1 class="text-6xl font-bold text-pretty">Hey, soy Gusstavo</h1>
+        <Badge color="blue">Disponible para trabajar</Badge>
+      </div>
+      <div class="w-full">
+        <p class="text-xl md:text-2xl text-justify text-pretty">
+          +4 años de experiencia. De Jalisco, México. Soy desarrollador web y me
+          especializo en crear experiencias unicas.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <Badge><GithubIcon class="size-6" />Github</Badge>
+        <Badge><LinkedinIcon class="size-6" />Linkedin</Badge>
+        <Badge>gusstavo@example.me</Badge>
+      </div>
+    </SectionContainer>
+    <SectionContainer id="experience">
+      <h2 class="text-2xl md:text-3xl font-bold flex gap-2 items-center">
+        <BriefcaseIcon class="size-6 md:size-8" />
+        Experiecia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>

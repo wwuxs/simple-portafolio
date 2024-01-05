@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Enero 2022",
+    title: "Aplicación para gestionar gastos - Zone 0",
+    description:
+      "La aplicación hace una gestión de ingresos y gastos devolviendo el balance total, ademas representa con graficas la linea del tiempo de esos ingresos.",
+    link: "/",
+  },
+  {
+    date: "Agosto 2023",
+    title: "Aplicación de ventas y gestor de productos - Zone 0",
+    description:
+      "Una aplicación hecha para registrar ventas e ir llevando un orden en los productos.",
+    link: "/",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCE?.map((xp) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...xp} />
+      </li>
+    ))
+  }
+</ol>
