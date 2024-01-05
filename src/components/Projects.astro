@@ -1,0 +1,50 @@
+---
+const PROJECTS = [
+  {
+    title: "App del Clima",
+    description:
+      "Ejercicio sobre el uso de la API openweathermap y su representación en HTML con estilos en CSS y algo de JS.",
+    link: "#",
+    github:
+      "https://github.com/gusstavo-renteria/practicas-html/tree/main/HTML%20%231%20-%20App%20del%20clima",
+    image:
+      "https://raw.githubusercontent.com/gusstavo-renteria/practicas-html/main/HTML%20%231%20-%20App%20del%20clima/screenshots/screen-1.jpeg",
+    tags: ["HTML", "CSS", "JavaScript", "API"],
+  },
+  {
+    title: "Calculadora Simple",
+    description: "Calculadora simple con las operaciones básicas.",
+    link: "#",
+    github:
+      "https://github.com/gusstavo-renteria/practicas-html/tree/main/HTML%20%232%20-%20Calculadora%20simple",
+    image:
+      "https://raw.githubusercontent.com/gusstavo-renteria/practicas-html/main/HTML%20%232%20-%20Calculadora%20simple/screenshots/screen-0.jpeg",
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
+];
+---
+
+<div class="project-container grid gap-12">
+  {
+    PROJECTS.map(({ title, description, tags, link, github, image }) => (
+      <article class="grid gap-4 pt-4">
+        <h3 class="text-2xl md:text-3xl font-semibold text-zinc-800/60 dark:text-zinc-200/60">
+          {title}
+        </h3>
+        <p class="text-xl text-justify text-pretty">{description}</p>
+        <ul class="flex flex-wrap gap-4">
+          {tags.map((tag) => (
+            <li class="bg-neutral-200 dark:bg-neutral-800 px-4 py-1 rounded-full">
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <img
+          class="w-full max-h-[480px] rounded-3xl object-cover object-top opacity-75"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+      </article>
+    ))
+  }
+</div>
