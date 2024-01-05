@@ -1,4 +1,7 @@
-<header id="main-header" class="relative w-full grid place-items-center px-4">
+<header
+  id="main-header"
+  class="fixed top-0 left-0 w-full grid place-items-center px-4 bg-neutral-100/60 dark:bg-neutral-950/60 backdrop-blur-md"
+>
   <div
     class="container max-w-[1080px] min-h-24 flex justify-between items-center"
   >
@@ -11,14 +14,14 @@
       <ul
         id="menu-el"
         class="absolute transition-all pointer-events-none right-0 top-0 grid gap-4 opacity-0 p-4
-        [&.active]:pointer-events-auto [&.active]:opacity-100 [&.active]:top-full
+        [&.active]:pointer-events-auto [&.active]:opacity-100 [&.active]:top-full [&.active]:bg-neutral-100 [&.active]:dark:bg-neutral-950 md:[&.active]:bg-transparent
         md:flex md:items-center md:relative md:opacity-100 md:top-0 md:pointer-events-auto md:p-0
         [&>li>a]:block [&>li>a]:w-full [&>li>a]:text-xl [&>li>a]:p-2 [&>li>a]:transition-all md:hover:[&>li>a]:translate-y-1"
       >
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/about">Acerca de mi</a></li>
-        <li><a href="/projects">Proyectos</a></li>
-        <li><a href="/contact">Contactame</a></li>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#experience">Experiencias</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contactame</a></li>
       </ul>
       <button
         id="button-menu"
