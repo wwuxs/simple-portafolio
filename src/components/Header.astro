@@ -1,0 +1,43 @@
+<header id="main-header" class="relative w-full grid place-items-center px-4">
+  <div
+    class="container max-w-[1080px] min-h-24 flex justify-between items-center"
+  >
+    <img
+      src="assets/user-image.jpg"
+      alt="user-image"
+      class="block w-16 h-16 object-cover rounded-full"
+    />
+    <nav>
+      <ul
+        id="menu-el"
+        class="absolute transition-all pointer-events-none right-0 top-0 grid gap-4 opacity-0 p-4
+        [&.active]:pointer-events-auto [&.active]:opacity-100 [&.active]:top-full
+        md:flex md:items-center md:relative md:opacity-100 md:top-0 md:pointer-events-auto md:p-0
+        [&>li>a]:block [&>li>a]:w-full [&>li>a]:text-xl [&>li>a]:p-2 [&>li>a]:transition-all md:hover:[&>li>a]:translate-y-1"
+      >
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/about">Acerca de mi</a></li>
+        <li><a href="/projects">Proyectos</a></li>
+        <li><a href="/contact">Contactame</a></li>
+      </ul>
+      <button
+        id="button-menu"
+        class="relative w-10 h-10 grid place-items-center text-4xl md:hidden"
+        >+</button
+      >
+    </nav>
+  </div>
+</header>
+
+<script>
+  const buttonMenu = document.getElementById("button-menu");
+  const menuEl = document.getElementById("menu-el");
+
+  buttonMenu?.addEventListener("click", () => {
+    if (menuEl?.classList.toggle("active")) {
+      buttonMenu.innerHTML = "-";
+    } else {
+      buttonMenu.innerHTML = "+";
+    }
+  });
+</script>
